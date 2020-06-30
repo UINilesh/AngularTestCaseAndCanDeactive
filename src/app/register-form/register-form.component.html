@@ -1,0 +1,52 @@
+<form [formGroup]="registerform" (ngSubmit)="registeSubmit()">
+  <div class="field">
+    <input type="text"  placeholder="Name" formControlName="name" />
+    <div *ngIf="submitted && f.name.errors" class="invalid-msg">
+    <div *ngIf="f.name.errors.required">
+        Please enter name
+    </div>
+</div>
+  </div>
+
+  <div class="field">
+    <input type="text"   placeholder="Email" formControlName="email" />
+    <div *ngIf="submitted && f.email.errors" class="invalid-msg">
+        <div *ngIf="f.email.errors.required">
+            Please enter email
+        </div>
+        <div *ngIf="f.email.errors.email">
+            Please enter email address proper.
+        </div>
+
+    </div>
+  </div>
+
+  <div class="field">
+    <input (keyup)="_keyUp($event)"  type="text"  placeholder="contactNumber" formControlName="contactNumber" 
+    minlength="10" maxlength="10"/>
+    <div *ngIf="submitted && f.contactNumber.errors" class="invalid-msg">
+        <div *ngIf="f.contactNumber.errors.required">
+            Please enter contact number
+        </div>
+        <div *ngIf="f.contactNumber.errors.pattern">
+            Please enter contact number 10 digit
+        </div>
+        
+    </div>
+
+  </div>
+
+  
+  <div class="field">
+    <input type="text" placeholder="City" formControlName="city">
+    <div *ngIf="submitted && f.city.errors" class="invalid-msg">
+        <div *ngIf="f.city.errors.required">
+            Please enter city
+        </div>
+    </div>
+    </div>
+    
+  <div class="submitBtn">
+    <button class="btn btn-primary">Register</button>
+  </div>
+</form>

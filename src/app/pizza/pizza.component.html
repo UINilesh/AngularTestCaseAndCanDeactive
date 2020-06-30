@@ -1,0 +1,29 @@
+<table width="100%" style="text-align: center;">
+  <tr>
+    <th>
+      User Id
+    </th>
+    <th>
+      Id
+    </th>
+    <th>
+      Title
+    </th>
+    <th>
+      Body
+    </th>
+  </tr>
+
+  <tr *ngFor="let posts of postsArray | slice:0:10">
+    <td>{{ posts.userId }}</td>
+    <td>{{ posts.id }}</td>
+    <td>{{ posts.title }}</td>
+    <td>{{ posts.body }}</td>
+  </tr>
+</table>
+
+<button (click)="showdata()">Show Data</button>
+
+<div *ngIf="textdata">
+  {{ outputtext }}
+</div>
